@@ -120,7 +120,7 @@ class BrowseDirectory extends React.Component {
     if (!tracks || !tracks.length) return;
 
     playURIs({
-      uris: arrayOf('uri', sortItems(tracks, 'name')),
+      uris: arrayOf('uri', sortItems(tracks, 'track_no')),
       from: {
         name: 'Directory',
         uri: `iris:browse:${uri}`,
@@ -163,7 +163,7 @@ class BrowseDirectory extends React.Component {
     let subdirectories = directory?.subdirectories;
     let tracks = directory?.tracks;
     subdirectories = sortItems(subdirectories, 'name');
-    tracks = sortItems(tracks, 'name');
+    tracks = sortItems(tracks, 'track_no');
     if (filter && filter !== '') {
       subdirectories = applyFilter('name', filter, subdirectories);
       tracks = applyFilter('name', filter, tracks);
